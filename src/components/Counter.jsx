@@ -1,29 +1,18 @@
-import { useContext } from 'react'
-import CounterContext from '@/contexts/CounterContext'
+import Button from '@/components/Button'
 
 import './Counter.css'
 
 /**
- * A counter component that increments and decrements a number
- * @function
- * @returns {JSX.Element} - The Counter component
+ * A React functional component that renders a counter with buttons to increment, decrement, or reset the count.
+ * @returns {JSX.Element} The rendered component.
  */
 const Counter = () => {
-  const [counter, dispatch] = useContext(CounterContext)
-
   return (
     <article>
-      <div className="count">{counter ? counter : 0}</div>
       <div className="grid">
-        <button className="danger" onClick={() => dispatch({ type: 'DEC' })}>
-          -
-        </button>
-        <button className="info" onClick={() => dispatch({ type: 'ZERO' })}>
-          0
-        </button>
-        <button className="success" onClick={() => dispatch({ type: 'INC' })}>
-          +
-        </button>
+        <Button type="DEC" text="-" className="danger" />
+        <Button type="ZERO" text="0" className="info" />
+        <Button type="INC" text="+" className="success" />
       </div>
     </article>
   )
